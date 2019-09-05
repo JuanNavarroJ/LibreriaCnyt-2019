@@ -317,7 +317,6 @@ public class Libreria {
 				for(int m=0; m<matriz2.length;m++) {
 					for(int n=0; n<matriz2[0].length;n++) {
 						res[fila+i][columna] = producto(matriz1[i][m],matriz2[j][n]);
-						//System.out.println(res[fila+i][columna].getReal() + "  " + res[fila+i][columna].getImaginario()  + " en la Pos : " + (fila+i) + " "+  (columna) );
 						columna +=1;
 					}
 				}

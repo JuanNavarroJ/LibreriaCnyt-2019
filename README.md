@@ -1,22 +1,23 @@
-ï»¿# LibrerÃ­a computaciÃ³n CuÃ¡ntica
+# Librería computación Cuántica
 
-Esta libreria esta diseÃ±ada para operar numeros y matrices complejas con esto podremos empezar a entender espacios vectoriales complejos.
+Esta libreria esta diseñada para operar numeros y matrices complejas con esto podremos empezar a entender espacios vectoriales complejos.
 
-## Â¿Como instalar?
+## ¿Como instalar y probar?
 
-Devemos tener un editor java instalado y git, es opcional tener instalado el uso de maven que permitira un mejor control sobre el proyecto.
+Debemos tener un editor java instalado y git, es opcional tener instalado el uso de maven que permitira un mejor control sobre el proyecto.
 
 1. Entramos la terminal del dispositivo y accedemos a la carpeta en la cual queremos guardar el proyecto. 
 2. Usando los comandos de git empezamos con : **$ git clone** https://github.com/JuanNavarroJ/LibreriaCnyt-2019.git 
-3. Usando maven podemos en la linea de comandos compilar y ejecutar el proyecto con el codigo **$ mvn package**
-4. Si solo deseas correr las pruebas podemos ejecutar el comando maven **$ mvn test**
-5. Si deseas conocer a profundidad el funcionamiento del codigo, podemos abrir el proyecto en un editor java.
+3. Ingresamos a la carpeta que descargamos desde Github.
+4. Usando maven podemos en la linea de comandos compilar y ejecutar el proyecto con el codigo **$ mvn package**
+5. Si solo deseas correr las pruebas podemos ejecutar el comando maven **$ mvn test**
+6. Si deseas conocer a profundidad el funcionamiento del codigo, podemos abrir el proyecto en un editor java.
 
-## Operaciones con nÃºmeros complejos:
+## Operaciones con números complejos:
 
 ### Suma
 	
-La **suma** de nÃºmeros complejos se realiza sumando partes reales entre sÃ­ y partes imaginarias entre sÃ­.
+La **suma** de números complejos se realiza sumando partes reales entre sí y partes imaginarias entre sí.
 Es decir:
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%28A%20&plus;%20B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20&plus;%20%28C%20&plus;%20D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20%3D%20%28A%20&plus;%20C%29%20&plus;%20%28B%20&plus;%20D%29%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D)
@@ -31,7 +32,7 @@ Ejemplo:
 	
 ### Resta
 
-La **resta** de nÃºmeros complejos se realiza sumando partes reales entre sÃ­ y partes imaginarias entre sÃ­.
+La **resta** de números complejos se realiza sumando partes reales entre sí y partes imaginarias entre sí.
 Es decir:
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%28A%20&plus;%20B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20-%20%28C%20&plus;%20D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20%3D%20%28A%20-%20C%29%20&plus;%20%28B%20-%20D%29%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20%7D)
@@ -47,7 +48,7 @@ Ejemplo:
 	
 ### Producto
 
-El **producto** de los nÃºmeros complejos se realiza aplicando la propiedad distributiva del producto respecto de la suma y teniendo en cuenta que ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%5E%7B2%7D%20%3D%20-1%20%7D)
+El **producto** de los números complejos se realiza aplicando la propiedad distributiva del producto respecto de la suma y teniendo en cuenta que ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%5E%7B2%7D%20%3D%20-1%20%7D)
 
 Es decir:
 
@@ -64,9 +65,9 @@ Ejemplo:
 	
 ---
 
-### DivisiÃ³n
+### División
 
-Para dividir nÃºmeros complejos se multiplica numerador y denominador por el conjugado del denominador y se realiza el producto que explicamos en la parte anterior.
+Para dividir números complejos se multiplica numerador y denominador por el conjugado del denominador y se realiza el producto que explicamos en la parte anterior.
 Es decir:
 
 ![equation](http://latex.codecogs.com/gif.latex?%24%24%7B%5Ccolor%7BDarkBlue%7D%20%5Cfrac%7BA&plus;B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%20%3D%20%3E%5Cfrac%7BA&plus;B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%20%5Ccdot%20%5Cfrac%7B%5Coverline%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7D%7B%5Coverline%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7D%7D%24%24)
@@ -74,9 +75,9 @@ Es decir:
 
 ---
 
-### MÃ³dulo
+### Módulo
 
-Se llama mÃ³dulo de un nÃºmero complejo a la distancia del origen de coordenadas al afijo de dicho nÃºmero. 
+Se llama módulo de un número complejo a la distancia del origen de coordenadas al afijo de dicho número. 
 
 Es decir: 
 
@@ -88,33 +89,36 @@ Y es representado por :  ![equation](http://latex.codecogs.com/gif.latex?%7B%5Cc
 
 ### Conjugado
 
-Se llama conjugado de un nÃºmero complejo_ al nÃºmero complejo que se obtiene por simetrÃ­a del dado respecto del eje de la parte imaginaria.
+Se llama conjugado de un número complejo_ al número complejo que se obtiene por simetría del dado respecto del eje de la parte imaginaria.
 Se obtiene al cambiar el signo de la parte imaginaria de la siguiente forma:
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Coverline%7BA&plus;Bi%20%7D%20%3D%20A-Bi%7D)
 
 ---
 
-### ConversiÃ³n entre representaciones polar y cartesiano
+### Conversión entre representaciones polar y cartesiano
 
-Los nÃºmeros complejos pueden representarse grÃ¡ficamente, al igual que los nÃºmeros reales. Ahora bien, si aquellos los representÃ¡bamos en una recta (la recta real), los complejos tenemos que representarlos en un plano (el plano complejo), ya que tienen parte real y parte imaginaria.
+Los números complejos pueden representarse gráficamente, al igual que los números reales. Ahora bien, si aquellos los representábamos en una recta (la recta real), los complejos tenemos que representarlos en un plano (el plano complejo), ya que tienen parte real y parte imaginaria.
 	
-Asociamos el eje X del plano a los nÃºmeros reales, y el eje Y a los imaginarios, de modo que cada nÃºmero complejo viene representado por un punto de ese plano.
+Asociamos el eje X del plano a los números reales, y el eje Y a los imaginarios, de modo que cada número complejo viene representado por un punto de ese plano.
 	
-Eso es dar los puntos en coordenadas cartesianas, pero tambiÃ©n podemos expresar un punto en coordenadas polares, es decir, dando la distancia hasta el origen (mÃ³dulo) y el Ã¡ngulo que forma con el eje X (fase):
+Eso es dar los puntos en coordenadas cartesianas, pero también podemos expresar un punto en coordenadas polares, es decir, dando la distancia hasta el origen (módulo) y el ángulo que forma con el eje X (fase):
 
 ![equation]()
 
 ---
 
-### MultiplicaciÃ³n escalar de vectores complejos.
+### Multiplicación escalar de vectores complejos.
+
+Para la multiplicacion entre vectores complejos tenemos que multiplicar termino a termino.
 
 ![equation]()
 
 ---
 
-### AdiciÃ³n de matrices complejos.
+### Adición de matrices complejos.
 
+Para la adicion entre numeros complejos debemos sumar termino a termino.
 ![equation]()
 
 ---
@@ -127,7 +131,9 @@ El inverso de una matriz compleja se obtine mediante el cambio de signo tanto de
 
 ---
 
-### MultiplicaciÃ³n escalar de matrices complejas.
+### Multiplicación escalar de matrices complejas.
+
+Para la multiplicacion de matrices complejas debemos tener en cuenta que se debe multiplicar por cada elemento de la primera matriz recorremos en fila y por cada elemento de la segunda matriz recorremos en columna.
 
 ![equation]()
 
@@ -153,11 +159,13 @@ Y esta definida como el conjugado de cada numero complejo que se encuentra en la
 
 ### Matriz adjunta
 
+Para obtener la matriz adjunta debemos primero sacar la matriz trasnpuesta y luego hacer a esa matriz su conjugada de la siguiente forma:
+
 ![equation]()
 
 ---
 
-### FunciÃ³n para calcular la "acciÃ³n" de una matriz sobre un vector.
+### Función para calcular la "acción" de una matriz sobre un vector.
 
 ![equation]()
 
@@ -165,29 +173,35 @@ Y esta definida como el conjugado de cada numero complejo que se encuentra en la
 
 ### Norma de matrices
 
+La norma de una matriz es poder obetener su distancia para hacer esta operacion seguimos la siguiente ecuacion.
 ![equation]()
 
 ---
 
 ### Distancia entrematrices
 
+La distancia entre matrices es un real que nos indica la distacia entre dos matrices complejas diferentes.
 ![equation]()
 
 ---
 
 ### Revisar si es unitaria
 
+Una matriz unitaria es aquella que al multiplicarla por su adjunta la matriz resultante es una matrix unitaria es decir que la diagonal de la matriz esta compuesta por 1 y el resto.
 ![equation]()
 
 ---
 
 ### Revisar si es Hermitian
 
+Una matriz hermitain es si la posicion j,k es igual a su posicion k,j conjugado de la siguiente manera:
 ![equation]()
 
 ---
 
 ### Producto tensor.
+
+El producto tensor entre matrices es aquel que por cada elemento de la matriz A multiplico cada elemento de la matriz B de la siguiente manera.
 
 ![equation]()
 
