@@ -1,5 +1,17 @@
 ﻿# Librería computación Cuántica
 
+Esta libreria esta diseñada para operar numeros y matrices complejas con esto podremos empezar a entender espacios vectoriales complejos.
+
+## ¿Como instalar?
+
+Devemos tener un editor java instalado y git, es opcional tener instalado el uso de maven que permitira un mejor control sobre el proyecto.
+
+1. Entramos la terminal del dispositivo y accedemos a la carpeta en la cual queremos guardar el proyecto. 
+2. Usando los comandos de git empezamos con : **$ git clone** https://github.com/JuanNavarroJ/LibreriaCnyt-2019.git 
+3. Usando maven podemos en la linea de comandos compilar y ejecutar el proyecto con el codigo **$ mvn package**
+4. Si solo deseas correr las pruebas podemos ejecutar el comando maven **$ mvn test**
+5. Si deseas conocer a profundidad el funcionamiento del codigo, podemos abrir el proyecto en un editor java.
+
 ## Operaciones con números complejos:
 
 ### Suma
