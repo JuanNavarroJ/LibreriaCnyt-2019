@@ -8,6 +8,8 @@ Debemos tener un editor java instalado y git, es opcional tener instalado el uso
 
 1. Entramos la terminal del dispositivo y accedemos a la carpeta en la cual queremos guardar el proyecto. 
 
+![Prueba1](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso1.PNG?raw=true)
+
 ![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso1.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso1.PNG)
 
 2. Usando los comandos de git empezamos con : **$ git clone** https://github.com/JuanNavarroJ/LibreriaCnyt-2019.git 
