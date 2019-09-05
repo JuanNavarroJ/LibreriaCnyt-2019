@@ -7,11 +7,22 @@ Esta libreria esta diseñada para operar numeros y matrices complejas con esto po
 Debemos tener un editor java instalado y git, es opcional tener instalado el uso de maven que permitira un mejor control sobre el proyecto.
 
 1. Entramos la terminal del dispositivo y accedemos a la carpeta en la cual queremos guardar el proyecto. 
+
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso1.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso1.PNG)
+
 2. Usando los comandos de git empezamos con : **$ git clone** https://github.com/JuanNavarroJ/LibreriaCnyt-2019.git 
+
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso2.PNG])
+
 3. Ingresamos a la carpeta que descargamos desde Github.
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso3.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso3.PNG))
 4. Usando maven podemos en la linea de comandos compilar y ejecutar el proyecto con el codigo **$ mvn package**
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso4.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso4.PNG))
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso4.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso4.PNG))
 5. Si solo deseas correr las pruebas podemos ejecutar el comando maven **$ mvn test**
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso6.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso6.PNG))
 6. Si deseas conocer a profundidad el funcionamiento del codigo, podemos abrir el proyecto en un editor java.
+![image]([https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso7.PNG](https://github.com/JuanNavarroJ/LibreriaCnyt-2019/blob/master/ImagenesDeInstalacion/Paso7.PNG))
 
 ## Operaciones con números complejos:
 
