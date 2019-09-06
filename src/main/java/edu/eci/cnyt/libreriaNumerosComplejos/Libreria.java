@@ -153,6 +153,22 @@ public class Libreria {
 	}
 	
 	/**
+	 * Metodo que permite la resta de dos Matrices Complejas.
+	 * @param matriz1	Es la primera matriz compleja que se quiere sumar.
+	 * @param matriz2	Es la segunda matriz compleja que se quiere sumar.
+	 * @return	Retorna la suma de las dos Matrices Complejas.
+	 */
+	public static NumeroComplejo[][] restaMatricesComplejas(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz1.length][matriz1[0].length];
+		for(int i=0; i<matriz1.length;i++) {
+			for(int j=0; j<matriz1[0].length;j++) {
+				res[i][j] = resta(matriz1[i][j],matriz2[i][j]);
+			}
+		}
+		return res;
+	}
+	
+	/**
 	 * Metodo que permite obetener el opuesto de una Matriz Compleja.
 	 * @param matriz	Es la matriz de la cual se quiere obtener su opuesto.
 	 * @return	Retorna la Matriz Compleja opuesta.
@@ -254,6 +270,17 @@ public class Libreria {
 			}
 		}
 		return Math.sqrt(res);
+	}
+	
+	/**
+	 * Metodo que permite calcular la distancia entre dos matrices 
+	 * @param matriz1	Es la matriz1 a la cual se quiere saber su distancia
+	 * @param matriz2	Es la matriz2 a la cual se quiere saber su distancia
+	 * @return	Retorna la distancia entre las dos matrices.
+	 */
+	public static double distanciaEntreMatrices(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2) {
+		NumeroComplejo[][] ans = restaMatricesComplejas(matriz1,matriz2);
+		return normaDeMatriz(ans);
 	}
 	
 	/**

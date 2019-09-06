@@ -46,7 +46,20 @@ Ejemplo:
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%283%20&plus;%202%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20&plus;%20%286%20&plus;%203%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20%3D%20%283%20&plus;%206%29%20&plus;%20%282%20&plus;%203%29%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20%7D)
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%3D%20%7D%20%24%24%20%24%24%20%7B%5Ccolor%7BDarkBlue%7D%209%20&plus;%205%20%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20%7D)
 
-
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite la suma entre dos numeros complejos.
+	 * @param number1	Es el primer numero complejo.
+	 * @param number2	Es el segundo numero complejo.
+	 * @return	Retorna la suma entre los dos numeros complejos.
+	 */
+	public static NumeroComplejo suma(NumeroComplejo number1, NumeroComplejo number2) {
+		double sumI = number1.getImaginario() + number2.getImaginario();
+		double sumR = number1.getReal() + number2.getReal();
+		return new NumeroComplejo(sumR,sumI);
+	}
+```
 ---
 	
 ### Resta
@@ -62,6 +75,20 @@ Ejemplo:
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%283%20&plus;%202%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20-%20%286%20&plus;%203%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%29%20%3D%20%283%20-%206%29%20&plus;%20%282%20-%203%29%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20%7D)
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%3D%20%7D%20%7B%5Ccolor%7BDarkBlue%7D%20-3%20-%20%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20%7D)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite la resta entre dos numeros complejos.
+	 * @param number1	Es el primer numero complejo.
+	 * @param number2	Es el segundo numero complejo.
+	 * @return	Retorna la resta entre los dos numeros complejos.
+	 */
+	public static NumeroComplejo resta(NumeroComplejo number1, NumeroComplejo number2) {
+		double resI = number1.getImaginario() - number2.getImaginario();
+		double resR = number1.getReal() - number2.getReal();
+		return new NumeroComplejo(resR, resI);
+	}
+```
 
 ---
 	
@@ -81,7 +108,22 @@ Ejemplo:
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%3D%202%20&plus;%206%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20&plus;%203%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20&plus;%2012%5Ccdot%28-1%29%7D)
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%3D%202%20&plus;%206%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20&plus;%203%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%20-%2012%7D)
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%3D%20-10%20&plus;%209%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D)
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite el producto entre dos numeros complejos.
+	 * @param number1	Es el primer numero complejo.
+	 * @param number2	Es el segundo numero complejo.
+	 * @return	Retorna el producto entre los dos numeros complejos.
+	 */
+	public static NumeroComplejo producto(NumeroComplejo number1, NumeroComplejo number2) {
+		NumeroComplejo firstP = new NumeroComplejo(number1.getReal() * number2.getReal() , number1.getReal() * number2.getImaginario());
+		NumeroComplejo secondP = new NumeroComplejo((number1.getImaginario() * number2.getImaginario()) * -1 , number1.getImaginario() * number2.getReal());
+		return suma(firstP,secondP);
 	
+```
+
 ---
 
 ### División
@@ -91,6 +133,21 @@ Es decir:
 
 ![equation](http://latex.codecogs.com/gif.latex?%24%24%7B%5Ccolor%7BDarkBlue%7D%20%5Cfrac%7BA&plus;B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%20%3D%20%3E%5Cfrac%7BA&plus;B%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%20%5Ccdot%20%5Cfrac%7B%5Coverline%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7D%7B%5Coverline%7BC&plus;D%5Cboldsymbol%7B%5Cmathit%7Bi%7D%7D%7D%7D%7D%24%24)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite la division entre dos numeros complejos.
+	 * @param number1	Es el primer numero complejo.
+	 * @param number2	Es el segundo numero complejo.
+	 * @return	Retorna la division entre los dos numeros complejos.
+	 */
+	public static NumeroComplejo division(NumeroComplejo number1, NumeroComplejo number2) {
+		NumeroComplejo dividendo = producto(number1,number2.conjugado());
+		NumeroComplejo divisor = producto(number2,number2.conjugado());
+		NumeroComplejo res = new NumeroComplejo(dividendo.getReal()/divisor.getReal() ,dividendo.getImaginario()/divisor.getReal());
+		return res;
+	}
+```
 
 ---
 
@@ -104,6 +161,16 @@ Es decir:
 
 Y es representado por :  ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Cleft%20%7C%20z%20%5Cright%20%7C%7D)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite hacer el conjugado al numero complejo.
+	 * @return	Retorna El conjugado del numero complejo que es un nuevo numero complejo.
+	 */
+	public NumeroComplejo conjugado() {
+		return new NumeroComplejo(pReal, pImaginario*-1);
+	}
+```
 ---
 
 ### Conjugado
@@ -112,6 +179,17 @@ Se llama conjugado de un número complejo_ al número complejo que se obtiene por 
 Se obtiene al cambiar el signo de la parte imaginaria de la siguiente forma:
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Coverline%7BA&plus;Bi%20%7D%20%3D%20A-Bi%7D)
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+```	java
+	/**
+	 * Metodo que permite hacer el conjugado al numero complejo.
+	 * @return	Retorna El conjugado del numero complejo que es un nuevo numero complejo.
+	 */
+	public NumeroComplejo conjugado() {
+		return new NumeroComplejo(pReal, pImaginario*-1);
+	}
+```
 
 ---
 
@@ -125,21 +203,90 @@ Eso es dar los puntos en coordenadas cartesianas, pero también podemos expresar 
 
 ![equation]()
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite pasar un numero complejo de sus coordenadas cartesianas a sus coordenadas polares.
+	 * @param number1	Es el numero complejo el cual se desea obtener sus cordenadas polares
+	 * @return	Retorna las coordenadas Polares del numero complejo.
+	 */
+	public static double[] polar(NumeroComplejo number) {
+		double r = number.modulo();
+		double ang = number.fase();
+		if(ang<0) {
+			ang += 180;
+		}
+		double[] res = new double[2];
+		res[0] = r;
+		res[1] = ang;
+		return res;
+	}
+```
+
+``` java
+	/**
+	 * Metodo que permite pasar de coordenadas polares a coordenadas cartesianas.
+	 * @param r	Es el modulo.
+	 * @param ang	Es el angulo de las coordenadas polares.
+	 * @return	Retorna las coordenadas cartesianas, es decir un numero complejo.
+	 */
+	public static NumeroComplejo cartesiano(double r , double ang) {
+		double pReal = r*Math.cos(Math.toRadians(ang));
+		double pImaginaria = r*Math.sin(Math.toRadians(ang));
+		NumeroComplejo res = new NumeroComplejo (pReal , pImaginaria);
+		return res;
+	}
+```
+
 ---
 
 ### Multiplicación escalar de vectores complejos.
 
 Para la multiplicacion entre vectores complejos tenemos que multiplicar termino a termino.
 
-![equation]()
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite la multiplicacion de un Escalar y un Vector Complejo.
+	 * @param vector1	Es el vector complejo que se va a multiplicar
+	 * @param numC1	Es el numero complejo que toma la funcion de escalar.
+	 * @return	Retorna un vector complejo producto de la multiplicacion del escalar por el vector inicial.
+	 */
+	public static NumeroComplejo[] multiplicacionEscalarPorVector(NumeroComplejo[] vector1, NumeroComplejo numC1) {
+		NumeroComplejo[] res = new NumeroComplejo[vector1.length];
+		for(int i=0; i<vector1.length;i++) {
+			res[i] = producto(vector1[i],numC1);
+		}
+		return res;
+	}
+```
 
 ---
 
 ### Adición de matrices complejos.
 
 Para la adicion entre numeros complejos debemos sumar termino a termino.
-![equation]()
 
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite la suma de dos Matrices Complejas.
+	 * @param matriz1	Es la primera matriz compleja que se quiere sumar.
+	 * @param matriz2	Es la segunda matriz compleja que se quiere sumar.
+	 * @return	Retorna la suma de las dos Matrices Complejas.
+	 */
+	public static NumeroComplejo[][] sumaMatricesComplejas(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz1.length][matriz1[0].length];
+		for(int i=0; i<matriz1.length;i++) {
+			for(int j=0; j<matriz1[0].length;j++) {
+				res[i][j] = suma(matriz1[i][j],matriz2[i][j]);
+			}
+		}
+		return res;
+	}
+```
 ---
 
 ### Inversa de matrices complejos.
@@ -148,6 +295,25 @@ El inverso de una matriz compleja se obtine mediante el cambio de signo tanto de
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%28-A%29%5Cleft%20%5B%20j%2Ck%20%5Cright%20%5D%20%3D%20-%28A%29%5Cleft%20%28%20%5Cleft%20%5B%20j%2Ck%20%5Cright%20%5D%20%5Cright%20%29%7D)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+
+``` java
+	/**
+	 * Metodo que permite obetener el opuesto de una Matriz Compleja.
+	 * @param matriz	Es la matriz de la cual se quiere obtener su opuesto.
+	 * @return	Retorna la Matriz Compleja opuesta.
+	 */
+	public static NumeroComplejo[][] inversoMatrizCompleja(NumeroComplejo[][] matriz){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz.length][matriz[0].length];
+		for(int i=0; i<matriz.length;i++) {
+			for(int j=0; j<matriz[0].length;j++) {
+				res[i][j] = matriz[i][j].opuesto();
+			}
+		}
+		return res;
+	}
+```
+
 ---
 
 ### Multiplicación escalar de matrices complejas.
@@ -155,6 +321,37 @@ El inverso de una matriz compleja se obtine mediante el cambio de signo tanto de
 Para la multiplicacion de matrices complejas debemos tener en cuenta que se debe multiplicar por cada elemento de la primera matriz recorremos en fila y por cada elemento de la segunda matriz recorremos en columna.
 
 ![equation]()
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite la multiplicacion escalar entre dos Matrices Complejas.
+	 * @param matriz1	Es la primera matriz que se quiere multiplicar.
+	 * @param matriz2	Es la segunda matriz que se quiere multiolicar.
+	 * @return	Retorna la matriz que es el producto escalar entre la Matriz1 y la Matriz2.
+	 */
+	public static NumeroComplejo[][] multiplicacionDeMatrices(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2){
+		NumeroComplejo[][] res = null;
+		if(matriz1.length == matriz2.length && matriz1[0].length == matriz2[0].length) {
+			res = new NumeroComplejo[matriz1.length][matriz1[0].length];
+			for(int fila=0; fila<matriz1.length;fila++) {
+				for(int columna=0; columna<matriz1[0].length;columna++) {
+					ArrayList<NumeroComplejo> datos = new ArrayList<NumeroComplejo>();
+					for(int i=0;i<matriz1.length;i++) {
+						NumeroComplejo dato = producto(matriz1[fila][i],matriz2[i][columna]);
+						datos.add(dato);
+					}
+					NumeroComplejo suma = new NumeroComplejo(0,0);
+					for(NumeroComplejo num : datos) {
+						suma = suma(num,suma);
+					}
+					res[fila][columna] = suma;
+				}
+			}
+		}
+		return res;
+	}
+```
 
 ---
 
@@ -165,6 +362,24 @@ Y es definida por un cambio de de filas y columnas de la siguiente forma:
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20A%5E%7BT%7D%20%5Cleft%20%5B%20j%2Ck%20%5Cright%20%5D%20%3D%20A%5Cleft%20%5B%20k%2Cj%20%5Cright%20%5D%7D)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite obtener la Matriz Transpuesta.
+	 * @param matriz	Es la matriz de la cual queremos obtener su Transpuesta.
+	 * @return	Retorna la matriz Transpuesta.
+	 */
+	public static NumeroComplejo[][] matrizTranspuesta(NumeroComplejo[][] matriz){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz.length][matriz[0].length];
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				res[i][j] = matriz[j][i];
+			}
+		}
+		return res;
+	}
+```
+
 ---
 
 ### Matriz conjugada
@@ -174,13 +389,48 @@ Y esta definida como el conjugado de cada numero complejo que se encuentra en la
 
 ![equation](http://latex.codecogs.com/gif.latex?%7B%5Ccolor%7BDarkBlue%7D%20%5Coverline%7BA%7D%20%5Cleft%20%5B%20j%2Ck%20%5Cright%20%5D%20%3D%20%5Coverline%7BA%20%5Cleft%20%5B%20j%2Ck%20%5Cright%20%5D%7D%7D)
 
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite obtener la matriz conjugada.
+	 * @param matriz	Es la matriz de la cual se quiere obtener su matriz conjugada.
+	 * @return	Retorna la matriz conjugada.
+	 */
+	public static NumeroComplejo[][] matrizConjugada(NumeroComplejo[][] matriz){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz.length][matriz[0].length];
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				res[i][j] = matriz[i][j].conjugado();
+			}
+		}
+		return res;
+	}
+```
+
 ---
 
 ### Matriz adjunta
 
 Para obtener la matriz adjunta debemos primero sacar la matriz trasnpuesta y luego hacer a esa matriz su conjugada de la siguiente forma:
 
-![equation]()
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite obtener la matriz Adjunta, recordemos que una matriz adjunta es una matriz que es transpuesta y conjugada.
+	 * @param matriz	Es la matriz de la cual se quiere obtener su matriz adjunta.
+	 * @return	Retorna la matriz adjunta.
+	 */
+	public static NumeroComplejo[][] matrizAdjunta(NumeroComplejo[][] matriz){
+		NumeroComplejo[][] res = new NumeroComplejo[matriz.length][matriz[0].length];
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				res[i][j] = matriz[j][i].conjugado();
+			}
+		}
+		return res;
+	}
+```
 
 ---
 
@@ -193,28 +443,110 @@ Para obtener la matriz adjunta debemos primero sacar la matriz trasnpuesta y lue
 ### Norma de matrices
 
 La norma de una matriz es poder obetener su distancia para hacer esta operacion seguimos la siguiente ecuacion.
-![equation]()
+
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite obtener la norma o distancia de una matriz.
+	 * @param matriz	Es la matriz de la cual se quiere obtener su norma.
+	 * @return	Retorna la norma de la matriz dada.
+	 */
+	public static double normaDeMatriz(NumeroComplejo[][] matriz) {
+		double res=0;
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				res += Math.pow(matriz[i][j].getReal(), 2);
+				res += Math.pow(matriz[i][j].getImaginario(), 2);
+			}
+		}
+		return Math.sqrt(res);
+	}
+```
 
 ---
 
 ### Distancia entrematrices
 
 La distancia entre matrices es un real que nos indica la distacia entre dos matrices complejas diferentes.
-![equation]()
+
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que permite calcular la distancia entre dos matrices 
+	 * @param matriz1	Es la matriz1 a la cual se quiere saber su distancia
+	 * @param matriz2	Es la matriz2 a la cual se quiere saber su distancia
+	 * @return	Retorna la distancia entre las dos matrices.
+	 */
+	public static double distanciaEntreMatrices(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2) {
+		NumeroComplejo[][] ans = restaMatricesComplejas(matriz1,matriz2);
+		return normaDeMatriz(ans);
+	}
+```
 
 ---
 
 ### Revisar si es unitaria
 
 Una matriz unitaria es aquella que al multiplicarla por su adjunta la matriz resultante es una matrix unitaria es decir que la diagonal de la matriz esta compuesta por 1 y el resto.
-![equation]()
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que revisa si una matriz es unitaria.
+	 * @param matriz	Es la matriz que vamos a revisar si es unitaria
+	 * @return	Retorna si la matriz es unitaria.
+	 */
+	public static boolean esUnitaria(NumeroComplejo[][] matriz) {
+		boolean res = true;
+		NumeroComplejo[][] ans = multiplicacionDeMatrices(matriz,matrizAdjunta(matriz));
+		for(int i=0; i<ans.length;i++) {
+			for(int j=0; j<ans[0].length;j++) {
+				double pReal = ans[i][j].getReal();
+				if(i==j) {
+					if(!((Math.round(pReal*100)/100) ==1 && ans[i][j].getImaginario()==0)) {
+						res = false;
+					}
+				}else{
+					if(!(ans[i][j].getReal()==0 && ans[i][j].getImaginario()==0)) {
+						res = false;
+					}
+				}
+			}
+		}
+		return res;
+	}
+```
 
 ---
 
 ### Revisar si es Hermitian
 
 Una matriz hermitain es si la posicion j,k es igual a su posicion k,j conjugado de la siguiente manera:
-![equation]()
+
+
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que me verifica si una matriz es Hermitian.
+	 * @param matriz	Es la matriz que se quiere verificar.
+	 * @return	Retorna true si la matriz es Hermitian, False de lo contrario.
+	 */
+	public static boolean esHermitian(NumeroComplejo[][] matriz) {
+		boolean res = true;
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				if(i!=j) {
+					if(!(matriz[i][j].conjugado().equals(matriz[j][i])) ) {
+						res = false;
+					}
+				}
+			}
+		}
+		return res;
+	}
+```
 
 ---
 
@@ -222,6 +554,26 @@ Una matriz hermitain es si la posicion j,k es igual a su posicion k,j conjugado 
 
 El producto tensor entre matrices es aquel que por cada elemento de la matriz A multiplico cada elemento de la matriz B de la siguiente manera.
 
-![equation]()
+En nuestra libreria esta operacion la podemos observar con este codigo.
+``` java
+	/**
+	 * Metodo que me verifica si una matriz es Hermitian.
+	 * @param matriz	Es la matriz que se quiere verificar.
+	 * @return	Retorna true si la matriz es Hermitian, False de lo contrario.
+	 */
+	public static boolean esHermitian(NumeroComplejo[][] matriz) {
+		boolean res = true;
+		for(int i=0;i<matriz.length;i++) {
+			for(int j=0;j<matriz[0].length;j++) {
+				if(i!=j) {
+					if(!(matriz[i][j].conjugado().equals(matriz[j][i])) ) {
+						res = false;
+					}
+				}
+			}
+		}
+		return res;
+	}
+```
 
 ---
