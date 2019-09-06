@@ -249,6 +249,22 @@ public class TestLibreria {
 	}
 	
 	@Test
+	public void deberiaObtenerLaAccionDeunaMatrizSobreUnVector() {
+		NumeroComplejo numC1 = new NumeroComplejo(2,0);
+		NumeroComplejo numC2 = new NumeroComplejo(5,0);
+		NumeroComplejo numC3 = new NumeroComplejo(1,0);
+		NumeroComplejo numC4 = new NumeroComplejo(4,0);
+		NumeroComplejo numC5 = new NumeroComplejo(3,0);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2,numC3},{numC4,numC5,numC3}};
+		NumeroComplejo[] vector = {numC4,numC1,numC1};
+		NumeroComplejo[] res = Libreria.accionDeUnaMatrizSobreUnVector(matriz1, vector);
+		NumeroComplejo[] ans = {new NumeroComplejo(20,0),new NumeroComplejo(24,0)};
+		for(int i=0; i<res.length; i++) {
+			assertTrue(res[i].equals(ans[i]));	
+		}
+	}
+	
+	@Test
 	public void deberiaObtenerLaNormaDeLaMatriz() {
 		//Ejercicio 2.4.5
 		NumeroComplejo numC1 = new NumeroComplejo(4,3);

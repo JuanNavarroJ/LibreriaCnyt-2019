@@ -256,6 +256,21 @@ public class Libreria {
 		return res;
 	}
 	
+	public static NumeroComplejo[] accionDeUnaMatrizSobreUnVector(NumeroComplejo[][] matriz, NumeroComplejo[] vector) {
+		NumeroComplejo[] res = null;
+		if(matriz[0].length == vector.length) {
+			res = new NumeroComplejo[matriz.length];
+			for(int i=0; i<matriz.length;i++) {
+				NumeroComplejo ans = new NumeroComplejo(0,0);
+				for(int j=0; j<matriz[0].length;j++) {
+					ans = suma(producto(matriz[i][j],vector[j]),ans);
+				}
+				res[i]= ans;
+			}
+		}
+		return res;
+	}
+	
 	/**
 	 * Metodo que permite obtener la norma o distancia de una matriz.
 	 * @param matriz	Es la matriz de la cual se quiere obtener su norma.
