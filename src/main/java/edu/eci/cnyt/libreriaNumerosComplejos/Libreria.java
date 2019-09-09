@@ -256,6 +256,12 @@ public class Libreria {
 		return res;
 	}
 	
+	/**
+	 * Metodo que permite calcular la accion de una matriz sobre un vector
+	 * @param matriz	Es la matriz que ejerce la accion
+	 * @param vector	Es el vector al cual le ejercen la accion
+	 * @return	Retorna un vector que es la accion de la matriz al vector
+	 */
 	public static NumeroComplejo[] accionDeUnaMatrizSobreUnVector(NumeroComplejo[][] matriz, NumeroComplejo[] vector) {
 		NumeroComplejo[] res = null;
 		if(matriz[0].length == vector.length) {

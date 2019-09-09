@@ -60,6 +60,21 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 		return new NumeroComplejo(sumR,sumI);
 	}
 ```
+Y su respectiva prueba en java seria:
+
+``` java
+	@Test
+	public void deberiaSumarDosNumerosComplejos() {
+		NumeroComplejo numC1 = new NumeroComplejo(1,-3);
+		NumeroComplejo numC2 = new NumeroComplejo(8,2);
+		NumeroComplejo res = Libreria.suma(numC1, numC2);
+		NumeroComplejo sol = new NumeroComplejo(9,-1);
+		NumeroComplejo badsol = new NumeroComplejo(9,1);
+		assertTrue(res.equals(sol));
+		assertFalse(res.equals(badsol));
+	}
+```
+
 ---
 	
 ### Resta
@@ -87,6 +102,18 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 		double resI = number1.getImaginario() - number2.getImaginario();
 		double resR = number1.getReal() - number2.getReal();
 		return new NumeroComplejo(resR, resI);
+	}
+```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaRestarDosNumerosComplejos() {
+		NumeroComplejo numC1 = new NumeroComplejo(1,-3);
+		NumeroComplejo numC2 = new NumeroComplejo(8,2);
+		NumeroComplejo res = Libreria.resta(numC1, numC2);
+		NumeroComplejo sol = new NumeroComplejo(-7,-5);
+		assertTrue(res.equals(sol));
 	}
 ```
 
@@ -124,6 +151,17 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaHacerProductoDeDosNumerosComplejos() {
+		NumeroComplejo numC1 = new NumeroComplejo(3,2);
+		NumeroComplejo numC2 = new NumeroComplejo(6,3);
+		NumeroComplejo res = Libreria.producto(numC1, numC2);
+		NumeroComplejo sol = new NumeroComplejo(12,21);
+		assertTrue(res.equals(sol));
+	}
+```
 ---
 
 ### División
@@ -149,6 +187,18 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaDividirDosNumerosComplejos2() {
+		NumeroComplejo numC1 = new NumeroComplejo(3,2);
+		NumeroComplejo numC2 = new NumeroComplejo(-1,2);
+		NumeroComplejo res = Libreria.division(numC1, numC2);
+		NumeroComplejo sol = new NumeroComplejo(0.2,-1.6);
+		assertTrue(res.equals(sol));
+	}
+```
+
 ---
 
 ### Módulo
@@ -171,6 +221,16 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 		return new NumeroComplejo(pReal, pImaginario*-1);
 	}
 ```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerElModulo() {
+		NumeroComplejo numC = new NumeroComplejo(1,-3);
+		assertEquals(numC.modulo(),Math.sqrt(10),1.0);
+	}
+```
+
 ---
 
 ### Conjugado
@@ -191,6 +251,17 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerElConjugado() {
+		NumeroComplejo numC = new NumeroComplejo(1,-3);
+		NumeroComplejo res = numC.conjugado();
+		NumeroComplejo sol = new NumeroComplejo(1,3);
+		assertTrue(res.equals(sol));
+	}
+```
+
 ---
 
 ### Conversión entre representaciones polar y cartesiano
@@ -200,8 +271,6 @@ Los números complejos pueden representarse gráficamente, al igual que los número
 Asociamos el eje X del plano a los números reales, y el eje Y a los imaginarios, de modo que cada número complejo viene representado por un punto de ese plano.
 	
 Eso es dar los puntos en coordenadas cartesianas, pero también podemos expresar un punto en coordenadas polares, es decir, dando la distancia hasta el origen (módulo) y el ángulo que forma con el eje X (fase):
-
-![equation]()
 
 En nuestra libreria esta operacion la podemos observar con este codigo.
 ``` java
@@ -238,6 +307,27 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaPasarDeCoordenadasPolaresACartesianas() {
+		double r = 5;
+		double ang = 30;
+		NumeroComplejo res = Libreria.cartesiano(r, ang);
+		NumeroComplejo sol = new NumeroComplejo(4.330127018922194,2.4999999999999996);
+		assertTrue(res.equals(sol));
+	}
+```
+``` java
+	@Test
+	public void deberiaPasarDeCoordenadasCartesianasAPolares() {
+		NumeroComplejo numC = new NumeroComplejo(-7,3);
+		double[] res = Libreria.polar(numC);
+		assertEquals(res[0],Math.sqrt(58),1.0);
+		assertEquals(res[1],156.80140948635182,1.0);
+	}
+```
+
 ---
 
 ### Multiplicación escalar de vectores complejos.
@@ -259,6 +349,24 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 			res[i] = producto(vector1[i],numC1);
 		}
 		return res;
+	}
+```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaMultiplicarUnEscalarPorUnVector() {
+		NumeroComplejo escalar = new NumeroComplejo(3,2);
+		NumeroComplejo numC1 = new NumeroComplejo(6,3);
+		NumeroComplejo numC2 = new NumeroComplejo(0,0);
+		NumeroComplejo numC3 = new NumeroComplejo(5,1);
+		NumeroComplejo numC4 = new NumeroComplejo(4,0);
+		NumeroComplejo[] vector1 = {numC1,numC2,numC3,numC4};
+		NumeroComplejo[] res = Libreria.multiplicacionEscalarPorVector(vector1, escalar);
+		NumeroComplejo[] sol = {new NumeroComplejo(12,21),new NumeroComplejo(0,0),new NumeroComplejo(13,13),new NumeroComplejo(12,8)};
+		for(int i=0; i<sol.length; i++) {
+			assertTrue(sol[i].equals(res[i]));
+		}
 	}
 ```
 
@@ -287,6 +395,26 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 		return res;
 	}
 ```
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaSumarMatricesComplejas() {
+		NumeroComplejo numC1 = new NumeroComplejo(6,3);
+		NumeroComplejo numC2 = new NumeroComplejo(0,0);
+		NumeroComplejo numC3 = new NumeroComplejo(5,1);
+		NumeroComplejo numC4 = new NumeroComplejo(4,0);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2},{numC3,numC4}};
+		NumeroComplejo[][] matriz2 = {{numC4,numC3},{numC2,numC1}};
+		NumeroComplejo[][] res = Libreria.sumaMatricesComplejas(matriz1, matriz2);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(10,3),new NumeroComplejo(5,1)},{new NumeroComplejo(5,1),new NumeroComplejo(10,3)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
+	}
+```
+
 ---
 
 ### Inversa de matrices complejos.
@@ -314,13 +442,30 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaMatrizInversa() {
+		NumeroComplejo numC1 = new NumeroComplejo(6,3);
+		NumeroComplejo numC2 = new NumeroComplejo(0,0);
+		NumeroComplejo numC3 = new NumeroComplejo(5,1);
+		NumeroComplejo numC4 = new NumeroComplejo(4,0);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2},{numC3,numC4}};
+		NumeroComplejo[][] res = Libreria.inversoMatrizCompleja(matriz1);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(-6,-3),new NumeroComplejo(0,0)},{new NumeroComplejo(-5,-1),new NumeroComplejo(-4,0)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
+	}
+```
+
 ---
 
 ### Multiplicación escalar de matrices complejas.
 
 Para la multiplicacion de matrices complejas debemos tener en cuenta que se debe multiplicar por cada elemento de la primera matriz recorremos en fila y por cada elemento de la segunda matriz recorremos en columna.
-
-![equation]()
 
 En nuestra libreria esta operacion la podemos observar con este codigo.
 ``` java
@@ -353,6 +498,38 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaMultiplicarMatrices() {
+		// Ejercicio 2.2.7
+		NumeroComplejo numC1 = new NumeroComplejo(3,2);
+		NumeroComplejo numC2 = new NumeroComplejo(1,0);
+		NumeroComplejo numC3 = new NumeroComplejo(4,-1);
+		NumeroComplejo numC4 = new NumeroComplejo(0,0);
+		NumeroComplejo numC5 = new NumeroComplejo(4,2);
+		NumeroComplejo numC6 = new NumeroComplejo(5,-6);
+		NumeroComplejo numC7 = new NumeroComplejo(0,1);
+		NumeroComplejo numC8 = new NumeroComplejo(4,0);
+		NumeroComplejo numC9 = new NumeroComplejo(5,0);
+		NumeroComplejo numC10 = new NumeroComplejo(7,-4);
+		NumeroComplejo numC11 = new NumeroComplejo(2,-1);
+		NumeroComplejo numC12 = new NumeroComplejo(4,5);
+		NumeroComplejo numC13 = new NumeroComplejo(2,7);
+		NumeroComplejo numC14 = new NumeroComplejo(6,-4);
+		NumeroComplejo numC15 = new NumeroComplejo(2,0);
+		NumeroComplejo[][] matriz1 = {{numC1,numC4,numC6},{numC2,numC5,numC7},{numC3,numC4,numC8}};
+		NumeroComplejo[][] matriz2 = {{numC9,numC11,numC14},{numC4,numC12,numC15},{numC10,numC13,numC4}};
+		NumeroComplejo[][] res = Libreria.multiplicacionDeMatrices(matriz1, matriz2);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(26,-52),new NumeroComplejo(60,24),new NumeroComplejo(26,0)},{new NumeroComplejo(9,7),new NumeroComplejo(1,29),new NumeroComplejo(14,0)},{new NumeroComplejo(48,-21),new NumeroComplejo(15,22),new NumeroComplejo(20,-22)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
+	}
+```
+
 ---
 
 ### Matriz transpuesta
@@ -377,6 +554,31 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 			}
 		}
 		return res;
+	}
+```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaMatrizTranspuesta() {
+		//Ejercicio 2.2.5
+		NumeroComplejo numC1 = new NumeroComplejo(6,-3);
+		NumeroComplejo numC2 = new NumeroComplejo(2,12);
+		NumeroComplejo numC3 = new NumeroComplejo(0,-19);
+		NumeroComplejo numC4 = new NumeroComplejo(0,0);
+		NumeroComplejo numC5 = new NumeroComplejo(5,2.1);
+		NumeroComplejo numC6 = new NumeroComplejo(17,0);
+		NumeroComplejo numC7 = new NumeroComplejo(1,0);
+		NumeroComplejo numC8 = new NumeroComplejo(2,5);
+		NumeroComplejo numC9 = new NumeroComplejo(3,-4.5);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2,numC3},{numC4,numC5,numC6},{numC7,numC8,numC9}};
+		NumeroComplejo[][] res = Libreria.matrizTranspuesta(matriz1);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(6,-3),new NumeroComplejo(0,0),new NumeroComplejo(1,0)},{new NumeroComplejo(2,12),new NumeroComplejo(5,2.1),new NumeroComplejo(2,5)},{new NumeroComplejo(0,-19),new NumeroComplejo(17,0),new NumeroComplejo(3,-4.5)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
 	}
 ```
 
@@ -407,6 +609,31 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaMatrizConjugada() {
+		//Ejercicio 2.2.5
+		NumeroComplejo numC1 = new NumeroComplejo(6,-3);
+		NumeroComplejo numC2 = new NumeroComplejo(2,12);
+		NumeroComplejo numC3 = new NumeroComplejo(0,-19);
+		NumeroComplejo numC4 = new NumeroComplejo(0,0);
+		NumeroComplejo numC5 = new NumeroComplejo(5,2.1);
+		NumeroComplejo numC6 = new NumeroComplejo(17,0);
+		NumeroComplejo numC7 = new NumeroComplejo(1,0);
+		NumeroComplejo numC8 = new NumeroComplejo(2,5);
+		NumeroComplejo numC9 = new NumeroComplejo(3,-4.5);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2,numC3},{numC4,numC5,numC6},{numC7,numC8,numC9}};
+		NumeroComplejo[][] res = Libreria.matrizConjugada(matriz1);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(6,3),new NumeroComplejo(2,-12),new NumeroComplejo(0,19)},{new NumeroComplejo(0,0),new NumeroComplejo(5,-2.1),new NumeroComplejo(17,0)},{new NumeroComplejo(1,0),new NumeroComplejo(2,-5),new NumeroComplejo(3,+4.5)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
+	}
+```
+
 ---
 
 ### Matriz adjunta
@@ -432,11 +659,78 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaMatrizAdjunta() {
+		//Ejercicio 2.2.5
+		NumeroComplejo numC1 = new NumeroComplejo(6,-3);
+		NumeroComplejo numC2 = new NumeroComplejo(2,12);
+		NumeroComplejo numC3 = new NumeroComplejo(0,-19);
+		NumeroComplejo numC4 = new NumeroComplejo(0,0);
+		NumeroComplejo numC5 = new NumeroComplejo(5,2.1);
+		NumeroComplejo numC6 = new NumeroComplejo(17,0);
+		NumeroComplejo numC7 = new NumeroComplejo(1,0);
+		NumeroComplejo numC8 = new NumeroComplejo(2,5);
+		NumeroComplejo numC9 = new NumeroComplejo(3,-4.5);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2,numC3},{numC4,numC5,numC6},{numC7,numC8,numC9}};
+		NumeroComplejo[][] res = Libreria.matrizAdjunta(matriz1);
+		NumeroComplejo[][] sol = {{new NumeroComplejo(6,3),new NumeroComplejo(0,0),new NumeroComplejo(1,0)},{new NumeroComplejo(2,-12),new NumeroComplejo(5,-2.1),new NumeroComplejo(2,-5)},{new NumeroComplejo(0,19),new NumeroComplejo(17,0),new NumeroComplejo(3,4.5)}};
+		for(int i=0; i<sol.length; i++) {
+			for(int j=0; j<sol[0].length; j++) {
+				assertTrue(res[i][j].equals(sol[i][j]));
+			}
+		}
+	}
+```
+
 ---
 
 ### Función para calcular la "acción" de una matriz sobre un vector.
 
-![equation]()
+Este metodo nos permite multiplicar una matriz por un vector y nos da como resultado un nuevo vector esta operacion es conocida como la Accion de una matriz sobre un vector.
+
+``` java
+	/**
+	 * Metodo que permite calcular la accion de una matriz sobre un vector
+	 * @param matriz	Es la matriz que ejerce la accion
+	 * @param vector	Es el vector al cual le ejercen la accion
+	 * @return	Retorna un vector que es la accion de la matriz al vector
+	 */
+	public static NumeroComplejo[] accionDeUnaMatrizSobreUnVector(NumeroComplejo[][] matriz, NumeroComplejo[] vector) {
+		NumeroComplejo[] res = null;
+		if(matriz[0].length == vector.length) {
+			res = new NumeroComplejo[matriz.length];
+			for(int i=0; i<matriz.length;i++) {
+				NumeroComplejo ans = new NumeroComplejo(0,0);
+				for(int j=0; j<matriz[0].length;j++) {
+					ans = suma(producto(matriz[i][j],vector[j]),ans);
+				}
+				res[i]= ans;
+			}
+		}
+		return res;
+	}
+```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaAccionDeunaMatrizSobreUnVector() {
+		NumeroComplejo numC1 = new NumeroComplejo(2,0);
+		NumeroComplejo numC2 = new NumeroComplejo(5,0);
+		NumeroComplejo numC3 = new NumeroComplejo(1,0);
+		NumeroComplejo numC4 = new NumeroComplejo(4,0);
+		NumeroComplejo numC5 = new NumeroComplejo(3,0);
+		NumeroComplejo[][] matriz1 = {{numC1,numC2,numC3},{numC4,numC5,numC3}};
+		NumeroComplejo[] vector = {numC4,numC1,numC1};
+		NumeroComplejo[] res = Libreria.accionDeUnaMatrizSobreUnVector(matriz1, vector);
+		NumeroComplejo[] ans = {new NumeroComplejo(20,0),new NumeroComplejo(24,0)};
+		for(int i=0; i<res.length; i++) {
+			assertTrue(res[i].equals(ans[i]));	
+		}
+	}
+```
 
 ---
 
@@ -464,6 +758,21 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	}
 ```
 
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaNormaDeLaMatriz() {
+		//Ejercicio 2.4.5
+		NumeroComplejo numC1 = new NumeroComplejo(4,3);
+		NumeroComplejo numC2 = new NumeroComplejo(6,-4);
+		NumeroComplejo numC3 = new NumeroComplejo(12,-7);
+		NumeroComplejo numC4 = new NumeroComplejo(13,0);
+		NumeroComplejo[][] matriz1 = {{numC1},{numC2},{numC3},{numC4}};
+		double res = Libreria.normaDeMatriz(matriz1);
+		assertEquals(res,Math.sqrt(439),1.0);
+	}
+```
+
 ---
 
 ### Distancia entrematrices
@@ -482,6 +791,21 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 	public static double distanciaEntreMatrices(NumeroComplejo[][] matriz1, NumeroComplejo[][] matriz2) {
 		NumeroComplejo[][] ans = restaMatricesComplejas(matriz1,matriz2);
 		return normaDeMatriz(ans);
+	}
+```
+
+Y su respectiva prueba en java seria:
+``` java
+	@Test
+	public void deberiaObtenerLaNormaDeLaMatriz() {
+		//Ejercicio 2.4.5
+		NumeroComplejo numC1 = new NumeroComplejo(4,3);
+		NumeroComplejo numC2 = new NumeroComplejo(6,-4);
+		NumeroComplejo numC3 = new NumeroComplejo(12,-7);
+		NumeroComplejo numC4 = new NumeroComplejo(13,0);
+		NumeroComplejo[][] matriz1 = {{numC1},{numC2},{numC3},{numC4}};
+		double res = Libreria.normaDeMatriz(matriz1);
+		assertEquals(res,Math.sqrt(439),1.0);
 	}
 ```
 
@@ -577,3 +901,9 @@ En nuestra libreria esta operacion la podemos observar con este codigo.
 ```
 
 ---
+## Autor:
+
+Juan David Navarro Jimenez
+
+---
+
