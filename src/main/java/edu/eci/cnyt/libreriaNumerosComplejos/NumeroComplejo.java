@@ -1,3 +1,5 @@
+package edu.eci.cnyt.libreriaNumerosComplejos;
+
 /**
  * Clase que es la representacion de un numero complejo.
  * @author Juan David
