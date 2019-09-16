@@ -1,9 +1,8 @@
 package edu.eci.cnyt.libreriaCuantica;
 
-
 import static org.junit.Assert.assertTrue;
-import org.junit.Test;
 
+import org.junit.Test;
 
 public class TestLibreriaCuantica {
     
@@ -125,6 +124,19 @@ public class TestLibreriaCuantica {
         for(int i=0;i<res.length;i++){
         	assertTrue(res[i]==sol[i]);
         }
+    }
+    
+    @Test
+    // Exercise 3.2.3 - Quantum Computing for Computer Scientists
+    public void PruebaRendija() {
+        String[][] res = LibreriaCuantica.experimentoRendijaDoble(2);
+        for(int i=0;i<res.length;i++){
+            for(int j=0; j<res[0].length;j++){
+                System.out.print(res[i][j]);
+            }
+            System.out.println(" ");
+        }
+        assertTrue(true);
     }
     
     
