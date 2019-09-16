@@ -113,5 +113,19 @@ public class TestLibreriaCuantica {
         }
     }
     
+    @Test
+    // Exercise 3.2.3 - Quantum Computing for Computer Scientists
+    public void SistemaProbabilisticoExercise223() {
+        double[][] matrizBool = {{0,1/3,2/3},
+                                 {1/6,1/2,1/3,},
+                                 {5/6,1/6,0}};
+        double[] estadoInicial = {1/3,0,2/3};
+        double[] sol = LibreriaCuantica.sistemaProbabilistico(matrizBool, estadoInicial, 1);
+        double[] res = {4/9,5/18,5/18};
+        for(int i=0;i<res.length;i++){
+        	assertTrue(res[i]==sol[i]);
+        }
+    }
+    
     
 }
