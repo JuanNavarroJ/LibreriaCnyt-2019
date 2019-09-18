@@ -77,31 +77,38 @@ public class LibreriaCuantica {
     public static String[][] experimentoRendijaDoble(int cantRendijas){
         int totalRendijas = (cantRendijas*3)+2;
         String[][] sistema = new String[totalRendijas][totalRendijas];
+        String prob = Integer.toString(cantRendijas);
         int contR=0;
+        int correc=0;
         for(int i=0;i<sistema.length;i++){
             int cont=0;
             for(int j=0;j<sistema[0].length;j++){
                 if(contR==3){
-                	System.out.println("Entre1");
                     contR = 0;
+                    correc++;
                 }if(i==j && i>cantRendijas){
-                	System.out.println("Entre2");
                     sistema[i][j] = "1";
                 }else if(j==0 && i>0 && i<=cantRendijas){
-                	System.out.println("Entre3");
-                    sistema[i][j] = "1/2";
+                    sistema[i][j] = "1/"+prob;
                 }else if(j>0 && j<=cantRendijas && i>cantRendijas && (cont==0 || contR==0)){
-                	System.out.println("Entre4");
-                    sistema[i][j] = "1/3";
+                    if(correc!=0 && contR!=0){
+                        sistema[i][j+correc] = "1/3";
+                        sistema[i][j] = "0";
+                        int guia = correc;
+                        while(guia>1){
+                            sistema[i][j+guia-1] = "0";
+                            guia--;
+                        }
+                        j+=correc;
+                    }else{
+                        sistema[i][j] = "1/3";
+                    }
                     cont++;
                     contR++;
                 }else{
-                	System.out.println("Entre5");
                     sistema[i][j] = "0";
                 }
-                System.out.println(sistema[i][j]);
             }
-            System.out.println("Cambio de fila");
         }
         return sistema;
     }
