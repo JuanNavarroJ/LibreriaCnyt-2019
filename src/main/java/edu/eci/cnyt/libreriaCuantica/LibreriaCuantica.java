@@ -112,5 +112,4 @@ public class LibreriaCuantica {
         }
         return sistema;
     }
-    
 }
