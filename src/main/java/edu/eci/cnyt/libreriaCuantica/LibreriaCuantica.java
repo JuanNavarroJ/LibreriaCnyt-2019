@@ -74,6 +74,12 @@ public class LibreriaCuantica {
         return estadoMarbleAct;
     }
     
+    /**
+     * Programming Drill 3.2.2 - Quantum Computing for Computer Scientists.
+     * Metodo que permite el calculo de la matriz de probabilidades del experimento de doble rendija segun la cantidad de rendijas igresadas por el usuario. 
+     * @param cantRendijas  Son la cantidad de rendijas iniciales que el usuario desea conocer su probabilidad.
+     * @return  Retorna una matriz con las probabilidades.
+     */
     public static String[][] experimentoRendijaDoble(int cantRendijas){
         int totalRendijas = (cantRendijas*3)+2;
         String[][] sistema = new String[totalRendijas][totalRendijas];
