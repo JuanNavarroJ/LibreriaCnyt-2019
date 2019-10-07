@@ -1,5 +1,7 @@
 package edu.eci.cnyt.libreriaCuantica;
 
+import edu.eci.cnyt.libreriaNumerosComplejos.NumeroComplejo;
+
 /**
  *
  * @author Juan David
@@ -119,6 +121,12 @@ public class LibreriaCuantica {
         return sistema;
     }
     
+    /**
+     * Programming Drill 3.3.1 - Quantum Computing for Computer Scientists.
+     * Metodo que permite el calculo de la matriz de probabilidades del experimento de doble rendija segun la cantidad de rendijas igresadas por el usuario. 
+     * @param cantRendijas  Son la cantidad de rendijas iniciales que el usuario desea conocer su probabilidad.
+     * @return  Retorna una matriz con las probabilidades.
+     */
     public static String[][] experimentoRendijaDobleNumerosComplejos(int cantRendijas){
         int totalRendijas = (cantRendijas*3)+2;
         String[][] sistema = new String[totalRendijas][totalRendijas];
@@ -174,6 +182,32 @@ public class LibreriaCuantica {
             }
         }
         return sistema;
+    }
+    
+    /**
+     * Programming Drill 4.1 - Quantum Computing for Computer Scientists.
+     * Metodo que permite calcular la probabilidad de encontra una particula en una posición en particular.
+     * @param estado    Es el estado inicial de la particula.
+     * @param posicion  Es la posicion en donde queremos encontrar la probabilidad en esa posicion.
+     * @return 
+     */
+    public double probabilidadDeUnaParticula(NumeroComplejo[] estado, int posicion){
+        double res = 0;
+        double divisor = 0;
+        double dividendo = 0;
+        
+        for(int i=0;i<estado.length;i++) {
+            dividendo += Math.pow(estado[i].getReal(), 2);
+            dividendo += Math.pow(estado[i].getImaginario(), 2);
+            if(i==posicion){
+                divisor += Math.pow(estado[i].getReal(), 2);
+                divisor += Math.pow(estado[i].getImaginario(), 2);
+            }
+        }
+        
+        res = divisor/dividendo;
+        
+        return res;
     }
     
 }
