@@ -204,13 +204,8 @@ public class TestLibreriaCuantica {
                           {"0","0","1-i/?6","0","0","0","0","1"},};
         for(int i=0;i<res.length;i++){
             for(int j=0; j<res[0].length;j++){
-                System.out.print(res[i][j]);
-                if(j+1 == res.length){
-                    System.out.println("-------------");
-                }
-                //assertTrue(ans[i][j].equals(res[i][j]));
+                assertTrue(ans[i][j].equals(res[i][j]));
             }
         }
-        assertTrue(true);
     }
 }
