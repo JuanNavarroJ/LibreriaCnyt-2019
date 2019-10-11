@@ -1164,6 +1164,28 @@ En nuestra libreria cuantica esta operacion la podemos observar con este codigo.
     }
 ```
 
+### 2) Probabilidad de transitar del primer vector al segundo.
+
+Gracias a este programa podemos calcular la probabilidad de transitar de un vector a otro.
+
+En nuestra libreria cuantica esta operacion la podemos observar con este codigo.
+``` java
+	/**
+     * Programming Drill 4.1 - Quantum Computing for Computer Scientists.
+     * Metodo que permite calcular la probabilidad de transitar de un vector a otro.
+     * @param ket   Es el primer vector al que queremos transitar.
+     * @param bra   Es el segundo vector de donde queremos partir a transitar.
+     * @return  Retorna la probabilidad de transitar de un vector a otro.
+     */
+    public static NumeroComplejo probabilidadDeTransitarDeUnVectorAOtro(NumeroComplejo [] ket, NumeroComplejo [] bra){
+        NumeroComplejo res = Libreria.productoInterno(ket, bra);
+        return res;
+    }
+```
+---
+## Codacy
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/0725624b31b842fb8a864d66db4ce31c)](https://www.codacy.com/manual/JuanNavarroJ/LibreriaCnyt-2019?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JuanNavarroJ/LibreriaCnyt-2019&amp;utm_campaign=Badge_Grade)
 
 ---
 ## Autor:

@@ -192,7 +192,7 @@ public class LibreriaCuantica {
      * @param posicion  Es la posicion en donde queremos encontrar la probabilidad en esa posicion.
      * @return 
      */
-    public double probabilidadDeUnaParticulaEnUnaPosicionEnParticular(NumeroComplejo[] estado, int posicion){
+    public static double probabilidadDeUnaParticulaEnUnaPosicionEnParticular(NumeroComplejo[] estado, int posicion){
         double res = 0;
         double divisor = 0;
         double dividendo = 0;
@@ -218,7 +218,7 @@ public class LibreriaCuantica {
      * @param bra   Es el segundo vector de donde queremos partir a transitar.
      * @return  Retorna la probabilidad de transitar de un vector a otro.
      */
-    public NumeroComplejo probabilidadDeTransitarDeUnVectorAOtro(NumeroComplejo [] ket, NumeroComplejo [] bra){
+    public static NumeroComplejo probabilidadDeTransitarDeUnVectorAOtro(NumeroComplejo [] ket, NumeroComplejo [] bra){
         NumeroComplejo res = Libreria.productoInterno(ket, bra);
         return res;
     }

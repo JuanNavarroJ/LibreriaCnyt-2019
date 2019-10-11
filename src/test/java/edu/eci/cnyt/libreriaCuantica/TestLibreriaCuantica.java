@@ -1,5 +1,10 @@
 package edu.eci.cnyt.libreriaCuantica;
 
+import edu.eci.cnyt.libreriaNumerosComplejos.NumeroComplejo;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -208,4 +213,45 @@ public class TestLibreriaCuantica {
             }
         }
     }
+    
+    //Capitulo 4.1
+    
+    @Test
+    // Example 4.1.1 - Quantum Computing for Computer Scientists
+    public void DeberiaCalcularLaProbabilidadDeEncontrarUnaParticulaEnUnaPosicion(){
+        NumeroComplejo c1 = new NumeroComplejo(-3,-1);
+        NumeroComplejo c2 = new NumeroComplejo(0,-2);
+        NumeroComplejo c3 = new NumeroComplejo(0,1);
+        NumeroComplejo c4 = new NumeroComplejo(2,0);
+        
+        NumeroComplejo[] estado = {c1,c2,c3,c4};
+        
+        double res = LibreriaCuantica.probabilidadDeUnaParticulaEnUnaPosicionEnParticular(estado, 2);
+        double ans = (Math.pow(1,2)/Math.pow(4.3589, 2));
+        BigDecimal res1 = new BigDecimal(res);
+        res1 = res1.setScale(2, RoundingMode.HALF_UP);
+        BigDecimal ans1 = new BigDecimal(ans);
+        ans1 = ans1.setScale(2, RoundingMode.HALF_UP);
+        assertTrue(ans1.equals(res1));
+    }
+    
+    @Test
+    // Example 4.1.7 - Quantum Computing for Computer Scientists
+    public void DeberiaCalcularLaProbabilidadDeTransitarDeUnVectorAOtro(){
+        NumeroComplejo c1 = new NumeroComplejo(1,-1);
+        NumeroComplejo c2 = new NumeroComplejo(1,1);
+        
+        NumeroComplejo[] ket = new NumeroComplejo[1];
+        ket[0]=c1;
+        NumeroComplejo[] bra = new NumeroComplejo[1];
+        bra[0]=c2;
+        
+        NumeroComplejo res = LibreriaCuantica.probabilidadDeTransitarDeUnVectorAOtro(ket, bra);
+        System.out.println(res.getReal());
+        System.out.println(res.getImaginario());
+        NumeroComplejo ans = new NumeroComplejo(1,-1);
+        
+        assertTrue(ans.equals(res));
+    }
+    
 }
