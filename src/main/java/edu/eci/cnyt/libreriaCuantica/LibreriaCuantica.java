@@ -1,5 +1,6 @@
 package edu.eci.cnyt.libreriaCuantica;
 
+import edu.eci.cnyt.libreriaNumerosComplejos.Libreria;
 import edu.eci.cnyt.libreriaNumerosComplejos.NumeroComplejo;
 
 /**
@@ -191,7 +192,7 @@ public class LibreriaCuantica {
      * @param posicion  Es la posicion en donde queremos encontrar la probabilidad en esa posicion.
      * @return 
      */
-    public double probabilidadDeUnaParticula(NumeroComplejo[] estado, int posicion){
+    public double probabilidadDeUnaParticulaEnUnaPosicionEnParticular(NumeroComplejo[] estado, int posicion){
         double res = 0;
         double divisor = 0;
         double dividendo = 0;
@@ -210,4 +211,15 @@ public class LibreriaCuantica {
         return res;
     }
     
+    /**
+     * Programming Drill 4.1 - Quantum Computing for Computer Scientists.
+     * Metodo que permite calcular la probabilidad de transitar de un vector a otro.
+     * @param ket   Es el primer vector al que queremos transitar.
+     * @param bra   Es el segundo vector de donde queremos partir a transitar.
+     * @return  Retorna la probabilidad de transitar de un vector a otro.
+     */
+    public NumeroComplejo probabilidadDeTransitarDeUnVectorAOtro(NumeroComplejo [] ket, NumeroComplejo [] bra){
+        NumeroComplejo res = Libreria.productoInterno(ket, bra);
+        return res;
+    }
 }

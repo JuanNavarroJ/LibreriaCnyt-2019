@@ -373,4 +373,16 @@ public class Libreria {
 		}
 		return res;
 	}
+        
+        public static NumeroComplejo productoInterno (NumeroComplejo[] vector1, NumeroComplejo[] vector2){
+            NumeroComplejo res = new NumeroComplejo(1,1);
+            double pReal = 0;
+            double pImaginario = 0;
+            for(int i=0;i<vector1.length;i++){
+                pReal = vector1[i].getReal()*vector2[i].getReal();
+                pImaginario = vector1[i].getImaginario()*vector2[i].getImaginario();
+                res = new NumeroComplejo(res.getReal()*pReal,res.getImaginario()*pImaginario);
+            }
+            return res;
+        }
 }
